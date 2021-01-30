@@ -12,8 +12,7 @@ class Heap{
         h.push_back(k);
         int n = h.size() - 1;
         
-        int i = n;
-        int temp = k;
+        int i = n, temp = k;
         
         while(i > 1 && temp > h[i / 2]){
             swap(h[i], h[i / 2]);
@@ -23,8 +22,7 @@ class Heap{
     }
     
     int pop(){                  //frees memory too
-        int val = h[1];
-        int n = h.size() - 1;
+        int val = h[1], n = h.size() - 1;
         swap(h[1], h[n]);        
         int i = 1, j = 2 * i, temp = h[1];
         
@@ -47,8 +45,7 @@ class Heap{
     void pop_for_heapsort(int index){   //does not free memory of popped elements
         swap(h[1], h[index]);
         
-        int i = 1;
-        int j = 2 * i;
+        int i = 1, j = 2 * i;
         
         while(j < index - 1){
             if(h[j + 1] > h[j])j++;
@@ -95,5 +92,6 @@ int main() {
 	h.heapsort();
 	
 	for(int i = 0; i < 7; i++)cout << h.pop() << endl;
+	
 	return 0;
 }
